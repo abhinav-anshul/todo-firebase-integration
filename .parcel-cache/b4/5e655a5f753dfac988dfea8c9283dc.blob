@@ -1,0 +1,17 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+_parcelHelpers.export(exports, "db", function () {
+  return db;
+});
+var _firebase = require("firebase");
+var _firebaseDefault = _parcelHelpers.interopDefault(_firebase);
+var firebaseConfig = {
+  apiKey: "AIzaSyCfNRxlgEGvmQHsoSTlQJjwuHExmKEvqrM",
+  authDomain: "todo-41961.firebaseapp.com",
+  projectId: "todo-41961",
+  storageBucket: "todo-41961.appspot.com",
+  messagingSenderId: "618258027233",
+  appId: "1:618258027233:web:b77e1d7a20b8e3206a5da0"
+};
+_firebaseDefault.default.initializeApp(firebaseConfig);
+const db = _firebaseDefault.default.firestore();

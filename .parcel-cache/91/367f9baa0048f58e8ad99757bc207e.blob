@@ -1,0 +1,19 @@
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _jsxFileName = "C:\\Users\\abhinavanshul\\SIDEPROJECT\\firebase-todo\\App.jsx";
+function App() {
+  return (
+    /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 4,
+        columnNumber: 7
+      }
+    }, "Anotha one!!"))
+  );
+}
+exports.default = App;
+_c = App;
+var _c;
+$RefreshReg$(_c, "App");

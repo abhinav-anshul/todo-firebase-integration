@@ -1,0 +1,104 @@
+var helpers = require("./node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require("react");
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _firebase = require("./firebase");
+  var _firebase2 = require("firebase");
+  var _firebase2Default = _parcelHelpers.interopDefault(_firebase2);
+  var _jsxFileName = "C:\\Users\\abhinavanshul\\SIDEPROJECT\\firebase-todo\\App.jsx", _s = $RefreshSig$();
+  function App() {
+    _s();
+    const [data, setData] = _react.useState();
+    const [todo, setTodo] = _react.useState("");
+    _react.useEffect(() => {
+      getTodos();
+    }, []);
+    const getTodos = () => {
+      _firebase.db.collection("todo").onSnapshot(snap => {
+        setData(snap.docs.map(doc => ({
+          id: doc.id,
+          todo: doc.data().todo,
+          isCompleted: doc.data().isCompleted
+        })));
+      });
+    };
+    const addTodo = e => {
+      e.preventDefault();
+      console.log("done");
+      _firebase.db.collection("todo").add({
+        isCompleted: true,
+        timestamp: _firebase2Default.default.firestore.FieldValue.serverTimestamp(),
+        todo: todo
+      });
+      setTodo("");
+    };
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement(_reactDefault.default.Fragment, null, /*#__PURE__*/_reactDefault.default.createElement("h1", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 38,
+          columnNumber: 7
+        }
+      }, "TODO Anotha one!!"), /*#__PURE__*/_reactDefault.default.createElement("form", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 39,
+          columnNumber: 7
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("input", {
+        value: todo,
+        onChange: e => {
+          setTodo(e.target.value);
+        },
+        type: "text",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 40,
+          columnNumber: 9
+        }
+      }), /*#__PURE__*/_reactDefault.default.createElement("button", {
+        type: "submit",
+        onClick: addTodo,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 47,
+          columnNumber: 9
+        }
+      }, "BOOM")), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 51,
+          columnNumber: 7
+        }
+      }, data.map(item => {
+        /*#__PURE__*/_reactDefault.default.createElement("p", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 53,
+            columnNumber: 11
+          }
+        }, item.todo);
+      })))
+    );
+  }
+  exports.default = App;
+  _s(App, "tFhMCfn0HPV14k/NJLquHNexvL4=");
+  _c = App;
+  var _c;
+  $RefreshReg$(_c, "App");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
